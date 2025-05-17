@@ -60,6 +60,9 @@ const StepDateRange = () => {
               }}
               onSelect={onChange}
               pagedNavigation
+              hidden={{
+                before: new Date(),
+              }}
             />
           )}
         />

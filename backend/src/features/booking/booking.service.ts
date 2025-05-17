@@ -46,7 +46,7 @@ class BookingService {
         tx
       );
 
-      const booking = await db
+      const booking = await tx
         .insert(bookingTable)
         .values({
           endDate: bookingData.endDate,
