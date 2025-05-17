@@ -13,17 +13,12 @@ const envSchema = z.object({
 
 export const env = envSchema.parse(process.env);
 
-export const bookingSchema = z
-  .object({
-    firstName: z.string(),
-    lastName: z.string(),
-    vehicleId: z.number(),
-    startDate: z.date(),
-    endDate: z.date(),
-  })
-  .refine((data) => data.endDate > data.startDate, {
-    message: "End Date must be after Start Date",
-    path: ["endDate"],
-  });
+export const bookingSchema = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  vehicleId: z.number(),
+  startDate: z.coerce.date(),
+  endDate: z.coerce.date(),
+});
 
 export const idSchema = z.number().positive();

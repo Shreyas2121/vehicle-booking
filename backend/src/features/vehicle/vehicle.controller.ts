@@ -27,7 +27,7 @@ export const getVehicleTypesController = asyncHandler(async (req, res) => {
 });
 
 export const getVehicleModelsController = asyncHandler(async (req, res) => {
-  const vehicleTypeId = req.params.vehicleTypeId as string;
+  const vehicleTypeId = req.query.vehicleTypeId as string;
 
   const { success, data, error } = idSchema.safeParse(parseInt(vehicleTypeId));
 
